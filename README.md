@@ -134,6 +134,51 @@ open "src-tauri/target/release/bundle/dmg/"*.dmg
 - **后端**：Rust + Tauri
 - **图标**：App Icon
 
+## CI / 发布
+
+推送符合 `v*` 的 git tag（例如 `v0.1.0`）时，GitHub Actions 会编译并打包：
+
+| 平台 | Runner | 产物 |
+|------|--------|------|
+| macOS Apple Silicon | `macos-latest` | DMG 等 |
+| macOS Intel | `macos-latest` | DMG 等 |
+| Linux x64 | `ubuntu-22.04` | Deb / AppImage / RPM |
+| Windows x64 | `windows-latest` | MSI / NSIS |
+
+也可在 Actions 页手动运行 **Release** workflow；填写已有 tag 即可写入对应 Release，留空则只上传 workflow artifacts。
+
+### 触发示例
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+### 仓库 Secrets（macOS 签名与公证）
+
+在 GitHub 仓库 **Settings → Secrets and variables → Actions** 中配置：
+
+| Secret | 说明 |
+|--------|------|
+| `APPLE_CERTIFICATE` | Developer ID Application 证书导出的 `.p12` 的 base64（`openssl base64 -A -in cert.p12 -out cert.txt`） |
+| `APPLE_CERTIFICATE_PASSWORD` | 导出 `.p12` 时设置的密码 |
+| `KEYCHAIN_PASSWORD` | CI 临时 keychain 密码（可自拟随机字符串） |
+| `APPLE_ID` | Apple ID 邮箱（公证用） |
+| `APPLE_PASSWORD` | [App 专用密码](https://support.apple.com/HT204397)（非登录密码） |
+| `APPLE_TEAM_ID` | Apple Team ID（开发者账号 Membership 页） |
+
+可选（与 Apple ID 公证二选一，使用 [App Store Connect API Key](https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api)）：
+
+| Secret | 说明 |
+|--------|------|
+| `APPLE_API_KEY` | Key ID |
+| `APPLE_API_ISSUER` | Issuer ID |
+| `APPLE_API_KEY_P8` | 下载的 `.p8` 私钥全文 |
+
+未配置 `APPLE_CERTIFICATE` 时仍会构建 macOS 包，但不会正式签名/公证；Apple Silicon 用户从浏览器下载后可能被系统提示损坏。
+
+工作流文件：`.github/workflows/release.yml`。
+
 ## 许可证
 
 MIT License

@@ -23,6 +23,6 @@ tauri-plugin-log = "2"
 thiserror = "2"
 uuid = { version = "1", features = ["v4"] }
 redis = "0.27"
-memcache = "0.17"
+memcache = { version = "0.17", default-features = false }
 urlencoding = "2"
 keyring = "3"

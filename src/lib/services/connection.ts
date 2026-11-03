@@ -1,7 +1,7 @@
 import type { ConnectionConfig, ConnectionDraft } from '$lib/types/cache';
 import { invokeCommand } from '$lib/services/tauri';
 
-const BROWSER_KEY = 'cached-gui.connections';
+const BROWSER_KEY = 'cachet.connections';
 
 function readBrowserConnections(): ConnectionConfig[] {
 	if (typeof localStorage === 'undefined') return [];

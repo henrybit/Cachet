@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Cached GUI</title>
+	<title>Cachet</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 

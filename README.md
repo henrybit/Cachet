@@ -1,6 +1,8 @@
-# Cached GUI
+# Cachet
 
-一款轻量级的 Redis 和 Memcached 缓存管理桌面应用，支持连接管理、键值浏览、编辑、扫描等常用操作。
+轻量级 Redis / Memcached 缓存管理桌面应用，支持连接管理、键值浏览、编辑与扫描。
+
+更多产品介绍见 [docs/PRODUCT.md](docs/PRODUCT.md)。
 
 ## 功能特性
 
@@ -22,17 +24,17 @@
 
 ## 系统要求
 
-- macOS 10.15+
+- macOS 10.15+ / Windows 10+ / 主流 Linux 发行版
 - 已安装 Redis 或 Memcached 服务
 
 ## 安装使用
 
 ### 方式一：直接运行
 
-构建完成后，在 `src-tauri/target/release/bundle/macos/` 目录下找到 `Cached GUI.app`，双击或在终端中打开：
+构建完成后，在 `src-tauri/target/release/bundle/macos/` 目录下找到 `Cachet.app`，双击或在终端中打开：
 
 ```bash
-open "src-tauri/target/release/bundle/macos/Cached GUI.app"
+open "src-tauri/target/release/bundle/macos/Cachet.app"
 ```
 
 ### 方式二：安装 DMG

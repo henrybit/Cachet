@@ -167,9 +167,9 @@ jobs:
           API_PRIVATE_KEYS_DIR: ${{ env.API_PRIVATE_KEYS_DIR }}
         with:
           tagName: ${{ steps.release_meta.outputs.create_release == 'true' && steps.release_meta.outputs.tag || '' }}
-          releaseName: ${{ steps.release_meta.outputs.create_release == 'true' && format('Cached GUI {0}', steps.release_meta.outputs.tag) || '' }}
+          releaseName: ${{ steps.release_meta.outputs.create_release == 'true' && format('Cachet {0}', steps.release_meta.outputs.tag) || '' }}
           releaseBody: |
-            ## Cached GUI ${{ steps.release_meta.outputs.tag }}
+            ## Cachet ${{ steps.release_meta.outputs.tag }}
 
             从下方 Assets 下载对应平台的安装包。
 

@@ -14,7 +14,7 @@
 	<div class="section-head">
 		<div>
 			<p class="hint" style="margin: 0 0 4px;">缓存数据管理</p>
-			<h1 class="section-title">Cached GUI</h1>
+			<h1 class="section-title">Cachet</h1>
 		</div>
 		<Button variant="primary" onclick={() => connections.openCreate()}>新建</Button>
 	</div>

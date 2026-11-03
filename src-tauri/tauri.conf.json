@@ -1,8 +1,8 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Cached GUI",
+  "productName": "Cachet",
   "version": "0.1.0",
-  "identifier": "com.cachedgui.app",
+  "identifier": "com.cachet.app",
   "build": {
     "frontendDist": "../build",
     "devUrl": "http://localhost:5173",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Cached GUI",
+        "title": "Cachet",
         "width": 1280,
         "height": 820,
         "minWidth": 960,

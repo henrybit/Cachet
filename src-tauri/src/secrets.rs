@@ -1,6 +1,6 @@
 use crate::error::AppError;
 
-const SERVICE: &str = "com.cachedgui.app";
+const SERVICE: &str = "com.cachet.app";
 
 pub fn set_password(connection_id: &str, password: &str) -> Result<(), AppError> {
     let entry = keyring::Entry::new(SERVICE, connection_id)

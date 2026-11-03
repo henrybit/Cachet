@@ -164,7 +164,7 @@ git push origin v0.1.0
 |--------|------|
 | `APPLE_CERTIFICATE` | Developer ID Application 证书导出的 `.p12` 的 base64（`openssl base64 -A -in cert.p12 -out cert.txt`） |
 | `APPLE_CERTIFICATE_PASSWORD` | 导出 `.p12` 时设置的密码 |
-| `KEYCHAIN_PASSWORD` | CI 临时 keychain 密码（可自拟随机字符串） |
+| `KEYCHAIN_PASSWORD` | 可选；CI 临时 keychain 密码。不配则每次构建自动生成 |
 | `APPLE_ID` | Apple ID 邮箱（公证用） |
 | `APPLE_PASSWORD` | [App 专用密码](https://support.apple.com/HT204397)（非登录密码） |
 | `APPLE_TEAM_ID` | Apple Team ID（开发者账号 Membership 页） |

@@ -87,9 +87,9 @@ jobs:
             echo "APPLE_CERTIFICATE 未配置，将跳过代码签名（Apple Silicon 下载后可能提示损坏）。"
             exit 0
           fi
+          # CI 临时 keychain 口令：未配置 Secret 时自动生成，无需单独维护
           if [ -z "${KEYCHAIN_PASSWORD:-}" ]; then
-            echo "已配置 APPLE_CERTIFICATE，但缺少 KEYCHAIN_PASSWORD。"
-            exit 1
+            KEYCHAIN_PASSWORD="$(openssl rand -base64 32)"
           fi
           echo "$APPLE_CERTIFICATE" | base64 --decode > certificate.p12
           security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain

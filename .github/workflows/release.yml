@@ -1,11 +1,11 @@
-# 推送版本 tag（如 v0.1.0）时，为 Windows / macOS / Linux 编译打包并创建 GitHub Release。
+# 推送任意 git tag 时，为 Windows / macOS / Linux 编译打包并创建 GitHub Release。
 # macOS 签名与公证所需 Secrets 见 README「CI / 发布」。
 name: Release
 
 on:
   push:
     tags:
-      - 'v*'
+      - '*'
   workflow_dispatch:
     inputs:
       tag:

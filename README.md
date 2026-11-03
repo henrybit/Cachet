@@ -138,7 +138,7 @@ open "src-tauri/target/release/bundle/dmg/"*.dmg
 
 ## CI / 发布
 
-推送符合 `v*` 的 git tag（例如 `v0.1.0`）时，GitHub Actions 会编译并打包：
+推送任意 git tag（例如 `v0.1.0`、`0.1.0`、`release-2024.11`）时，GitHub Actions 会编译并打包：
 
 | 平台 | Runner | 产物 |
 |------|--------|------|
